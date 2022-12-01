@@ -1,0 +1,1590 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/earlyaccess/hanna.css");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+/* Reset CSS
+ * --------------------------------------- */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-weight: normal;
+  font-style: normal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+q:before,
+q:after {
+  content: "";
+}
+
+abbr,
+acronym {
+  border: 0;
+}
+
+/* Base Variables
+  * --------------------------------------- */
+:root {
+  --font: -apple-system, BlinkMacSystemFont, helvetica, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", sans-serif;
+  --font-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+  --color-text: #202020;
+  --color-bg: #f4f4f4;
+  --white: rgba(255, 255, 255, 0.95);
+  --soft-white: rgba(255, 255, 255, 0.5);
+  --border-width: 1px;
+  --border-radius: 4px;
+}
+
+/* Full Page CSS
+  * --------------------------------------- */
+html.fp-enabled,
+.fp-enabled body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*Avoid flicker on slides transitions for mobile phones #336 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.fp-section {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  /* Safari<=5 Android<=3 */
+  -moz-box-sizing: border-box;
+  /* <=28 */
+  box-sizing: border-box;
+}
+
+.fp-slide {
+  float: left;
+}
+
+.fp-slide,
+.fp-slidesContainer {
+  height: 100%;
+  display: block;
+}
+
+.fp-slides {
+  z-index: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.3s ease-out;
+  /* Safari<=6 Android<=4.3 */
+  transition: all 0.3s ease-out;
+}
+
+.fp-section.fp-table,
+.fp-slide.fp-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.fp-tableCell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+.fp-slidesContainer {
+  float: left;
+  position: relative;
+}
+
+.fp-controlArrow {
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  margin-top: -38px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* 왼쪽 화살 */
+.fp-controlArrow.fp-prev {
+  left: 15px;
+  width: 0;
+  border-width: 30px 32px 30px 0;
+  border-color: transparent black transparent transparent;
+}
+
+/* 오른쪽 화살 */
+.fp-controlArrow.fp-next {
+  right: 15px;
+  border-width: 30px 0 30px 32px;
+  border-color: transparent transparent transparent black;
+}
+
+.fp-controlArrow.fp-prev:hover {
+  border-color: transparent var(--white) transparent transparent;
+}
+
+.fp-controlArrow.fp-next:hover {
+  border-color: transparent transparent transparent var(--soft-white);
+}
+
+.fp-scrollable {
+  overflow: hidden;
+  position: relative;
+}
+
+.fp-scroller {
+  overflow: hidden;
+}
+
+.iScrollIndicator {
+  border: 0 !important;
+}
+
+.fp-notransition {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+.fp-slidesNav {
+  position: absolute;
+  z-index: 4;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  left: 0 !important;
+  right: 0;
+  margin: 0 auto !important;
+}
+
+.fp-slidesNav.bottom {
+  bottom: 17px;
+}
+
+.fp-slidesNav.top {
+  top: 17px;
+}
+
+.fp-slidesNav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.fp-slidesNav ul li {
+  display: block;
+  width: 14px;
+  height: 13px;
+  margin: 7px;
+  position: relative;
+}
+
+.fp-slidesNav ul li {
+  display: inline-block;
+}
+
+.fp-slidesNav ul li a {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.fp-slidesNav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  height: 12px;
+  width: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 100%;
+  background: #333;
+}
+
+.fp-slidesNav ul li a span {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  height: 8px;
+  width: 8px;
+  border: 0;
+  background: #666;
+  left: 50%;
+  top: 50%;
+  margin: -4px 0 0 -4px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.fp-slidesNav ul li:hover a span {
+  width: 10px;
+  height: 10px;
+  margin: -5px 0px 0px -5px;
+  background: #333;
+}
+
+.fp-auto-height.fp-section,
+.fp-auto-height .fp-slide,
+.fp-auto-height .fp-tableCell {
+  height: auto !important;
+}
+
+.fp-responsive .fp-auto-height-responsive.fp-section,
+.fp-responsive .fp-auto-height-responsive .fp-slide,
+.fp-responsive .fp-auto-height-responsive .fp-tableCell {
+  height: auto !important;
+}
+
+/* Custom CSS
+  * --------------------------------------- */
+body {
+  font-family: var(--font);
+  color: var(--color-text);
+}
+
+.wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  position: relative;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 4px;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+.intro p {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#menu li {
+  display: inline-block;
+  margin: 10px;
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-border-radius: 0;
+  border-radius: 2px;
+}
+
+#menu li.active {
+  background: rgba(255, 255, 255, 0.65);
+  color: #000;
+}
+
+#menu li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#menu li.active a:hover {
+  color: #000;
+}
+
+#menu li:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+#menu li a,
+#menu li.active a {
+  padding: 9px 18px;
+  display: block;
+}
+
+#menu li.active a {
+  color: #000;
+}
+
+#home_btn {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#menu {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: bold;
+  font-family: "Nanum Gothic", sans-serif;
+  position: fixed;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 60px;
+  z-index: 70;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#menu .toggleBtn {
+  position: absolute;
+  right: 32px;
+  display: none;
+  font-size: 24px;
+  color: rgb(41, 41, 41);
+}
+
+.title {
+  font-family: "Nanum Gothic", sans-serif;
+  line-height: 1.5;
+  font-weight: bold;
+  color: #1b1b1b;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.line {
+  height: 1px;
+  margin-bottom: 30px;
+}
+
+.mySkills {
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+}
+.mySkills .title {
+  font-family: "Nanum Gothic", sans-serif;
+  line-height: 1.5;
+  font-weight: bold;
+  color: #1b1b1b;
+  font-size: 30px;
+  margin-bottom: 30px;
+  width: 1300px;
+  text-align: center;
+}
+.mySkills .skillslist {
+  width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mySkills .skillslist .line {
+  height: 1px;
+  margin-bottom: 20px;
+}
+.mySkills .skillslist .fe {
+  width: 55%;
+  margin-bottom: 3%;
+}
+.mySkills .skillslist .etcs {
+  width: 40%;
+}
+.mySkills .skillslist .fe,
+.mySkills .skillslist .etcs {
+  display: flex;
+  flex-direction: column;
+}
+.mySkills .skillslist .fe .title,
+.mySkills .skillslist .etcs .title {
+  justify-content: center;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0px auto;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.mySkills .skillslist .fe .title .dot,
+.mySkills .skillslist .etcs .title .dot {
+  font-size: 11px;
+  margin-right: 10px;
+  color: #d2d2d2;
+}
+.mySkills .skillslist .fe .dev,
+.mySkills .skillslist .fe .etc,
+.mySkills .skillslist .etcs .dev,
+.mySkills .skillslist .etcs .etc {
+  margin: 0 auto;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+}
+.mySkills .skillslist .fe .dev .skill,
+.mySkills .skillslist .fe .etc .skill,
+.mySkills .skillslist .etcs .dev .skill,
+.mySkills .skillslist .etcs .etc .skill {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.mySkills .skillslist .fe .dev .skill img,
+.mySkills .skillslist .fe .etc .skill img,
+.mySkills .skillslist .etcs .dev .skill img,
+.mySkills .skillslist .etcs .etc .skill img {
+  padding: 10px;
+  width: 62px;
+  margin-bottom: 25px;
+}
+.mySkills .skillslist .fe .dev .skill .description,
+.mySkills .skillslist .fe .etc .skill .description,
+.mySkills .skillslist .etcs .dev .skill .description,
+.mySkills .skillslist .etcs .etc .skill .description {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: left;
+  margin: 25px 0;
+}
+.mySkills .skillslist .fe .dev .skill .description span,
+.mySkills .skillslist .fe .etc .skill .description span,
+.mySkills .skillslist .etcs .dev .skill .description span,
+.mySkills .skillslist .etcs .etc .skill .description span {
+  padding: 5px;
+}
+
+#projects .title {
+  width: 1170px;
+  max-width: 100%;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+  font-weight: bold;
+  font-family: "Nanum Gothic", sans-serif;
+  text-align: center;
+}
+#projects .first_cont,
+#projects .second_cont {
+  width: 1150px;
+  height: 480px;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#projects .first_cont .container,
+#projects .second_cont .container {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Nanum Gothic", sans-serif;
+  position: relative;
+}
+#projects .first_cont .container .view,
+#projects .second_cont .container .view {
+  top: 0px;
+  left: -20px;
+  position: absolute;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+#projects .first_cont .container .view img,
+#projects .second_cont .container .view img {
+  width: 88%;
+  margin: 0 auto;
+}
+#projects .first_cont .container .description,
+#projects .second_cont .container .description {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 50%;
+  line-height: 1.5;
+  font-weight: bold;
+  font-family: "Nanum Gothic", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  word-break: keep-all;
+  margin: 0 auto;
+}
+#projects .first_cont .container .description .content,
+#projects .second_cont .container .description .content {
+  padding: 20px 0px 100px;
+  height: auto;
+  margin-bottom: 1%;
+}
+#projects .first_cont .container .description .content .content_title,
+#projects .second_cont .container .description .content .content_title {
+  line-height: 1.5;
+  font-weight: bold;
+  font-family: "Nanum Gothic", sans-serif;
+  text-align: left;
+  font-size: 20px;
+}
+#projects .first_cont .container .description .content .content_title .number,
+#projects .second_cont .container .description .content .content_title .number {
+  color: rgb(198, 198, 198);
+  font-weight: 700;
+  font-size: 25px;
+}
+#projects .first_cont .container .description .content p,
+#projects .second_cont .container .description .content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+#projects .first_cont .container .description .content .skills,
+#projects .second_cont .container .description .content .skills {
+  font-size: 13px;
+}
+#projects .first_cont .container .description .content .skills ul,
+#projects .second_cont .container .description .content .skills ul {
+  list-style: none;
+}
+#projects .first_cont .container .description .content .skills .first,
+#projects .second_cont .container .description .content .skills .first {
+  color: #25aed3;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+#projects .first_cont .container .description .content .skills .second,
+#projects .second_cont .container .description .content .skills .second {
+  color: #e34c26;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+#projects .first_cont .container .description .content .skills .third,
+#projects .second_cont .container .description .content .skills .third {
+  color: #563d7c;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+#projects .first_cont .container .description .btns,
+#projects .second_cont .container .description .btns {
+  display: flex;
+}
+#projects .first_cont .container .description .btns .git_btn,
+#projects .second_cont .container .description .btns .git_btn {
+  width: 60px;
+  color: #000;
+  margin: 20px 20px 20px 20px;
+  height: 20px;
+  padding: 15px 45px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+}
+#projects .first_cont .container .description .btns .view_btn,
+#projects .second_cont .container .description .btns .view_btn {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  height: 20px;
+  margin: 20px 20px 20px 20px;
+  padding: 15px 45px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+}
+#projects .first_cont .container .description .btns .view_btn a,
+#projects .second_cont .container .description .btns .view_btn a {
+  color: black;
+}
+#projects .second_cont {
+  width: 1150px;
+  height: 480px;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#projects .second_cont .container {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Nanum Gothic", sans-serif;
+  position: relative;
+}
+#projects .second_cont .container .view {
+  top: 0px;
+  position: absolute;
+  width: 50%;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+#projects .second_cont .container .view img {
+  width: 100%;
+  margin: 0 auto;
+}
+#projects .second_cont .container .description {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 47%;
+  line-height: 1.5;
+  font-weight: bold;
+  font-family: "Nanum Gothic", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  word-break: keep-all;
+  margin: 0 auto;
+}
+#projects .second_cont .container .description .content {
+  padding: 20px 0px 100px;
+  height: auto;
+  margin-bottom: 1%;
+}
+#projects .second_cont .container .description .content .content_title {
+  line-height: 1.5;
+  font-weight: bold;
+  font-family: "Nanum Gothic", sans-serif;
+  text-align: left;
+  font-size: 20px;
+}
+#projects .second_cont .container .description .content .content_title .number {
+  color: rgb(198, 198, 198);
+  font-weight: 700;
+  font-size: 25px;
+}
+#projects .second_cont .container .description .content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+#projects .second_cont .container .description .content .skills {
+  font-size: 13px;
+}
+#projects .second_cont .container .description .content .skills ul {
+  list-style: none;
+}
+#projects .second_cont .container .description .content .skills .first {
+  color: #25aed3;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+#projects .second_cont .container .description .content .skills .second {
+  color: #e34c26;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+#projects .second_cont .container .description .content .skills .third {
+  color: #563d7c;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+#projects .second_cont .container .description .btns {
+  display: flex;
+}
+#projects .second_cont .container .description .btns .git_btn {
+  width: 60px;
+  color: #000;
+  margin: 20px 20px 20px 20px;
+  height: 20px;
+  padding: 15px 45px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+}
+#projects .second_cont .container .description .btns .view_btn {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  height: 20px;
+  margin: 20px 20px 20px 20px;
+  padding: 15px 45px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+}
+#projects .second_cont .container .description .btns .view_btn a {
+  color: black;
+}
+
+.contact {
+  text-align: center;
+  margin: 0 auto;
+  width: 1300px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.contact .line {
+  margin-top: 50px;
+  margin: 0 auto;
+  width: 1000px;
+  height: 3px;
+  margin-bottom: 30px;
+}
+.contact p,
+.contact span {
+  font-family: "Nanum Gothic", sans-serif;
+  line-height: 1.5;
+  font-weight: bold;
+  color: #1b1b1b;
+  font-size: 15px;
+}
+.contact .title {
+  font-size: 30px;
+}
+.contact .introduce {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.contact .introduce .hi {
+  font-size: 20px;
+}
+.contact .contact_description {
+  margin-top: 10px;
+  width: 60%;
+  margin: 0px auto;
+}
+.contact .contact_description .contacts {
+  margin: 20px auto;
+}
+.contact .contact_description .contact_title {
+  font-weight: bold;
+}
+
+code {
+  font-family: var(--font-monospace);
+  font-size: 1rem;
+  background: var(--soft-white);
+  border-radius: 4px;
+  margin: 0 3px;
+  padding: 2px 8px;
+}
+
+@media screen and (max-width: 1367px) {
+  .mySkills {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .mySkills .title {
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    width: 100%;
+    height: 40px;
+    max-width: 100%;
+    text-align: center;
+  }
+  .mySkills .skillslist {
+    width: 100%;
+    height: 100%;
+  }
+  .mySkills .skillslist .fe {
+    width: 60%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0px;
+    margin-bottom: 20px;
+  }
+  .mySkills .skillslist .fe .frontend_title {
+    height: 12%;
+  }
+  .mySkills .skillslist .etcs {
+    width: 40%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+  .mySkills .skillslist .etcs .etc_title {
+    height: 12%;
+  }
+  .mySkills .skillslist .fe .dev,
+  .mySkills .skillslist .fe .etc,
+  .mySkills .skillslist .etcs .dev,
+  .mySkills .skillslist .etcs .etc {
+    width: 85%;
+    height: auto;
+  }
+  .mySkills .skillslist .fe .dev .skill,
+  .mySkills .skillslist .fe .etc .skill,
+  .mySkills .skillslist .etcs .dev .skill,
+  .mySkills .skillslist .etcs .etc .skill {
+    width: 100%;
+  }
+  .mySkills .skillslist .fe .dev .skill .description,
+  .mySkills .skillslist .fe .etc .skill .description,
+  .mySkills .skillslist .etcs .dev .skill .description,
+  .mySkills .skillslist .etcs .etc .skill .description {
+    width: 100%;
+  }
+  .mySkills .skillslist .fe .dev .skill .description img,
+  .mySkills .skillslist .fe .etc .skill .description img,
+  .mySkills .skillslist .etcs .dev .skill .description img,
+  .mySkills .skillslist .etcs .etc .skill .description img {
+    margin: 0;
+  }
+  .mySkills .skillslist .fe .dev .skill span,
+  .mySkills .skillslist .fe .etc .skill span,
+  .mySkills .skillslist .etcs .dev .skill span,
+  .mySkills .skillslist .etcs .etc .skill span {
+    height: 100%;
+    width: 95%;
+  }
+}
+@media screen and (max-width: 1257px) {
+  .mySkills {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .mySkills .title {
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    width: 100%;
+    height: 40px;
+    max-width: 100%;
+    text-align: center;
+  }
+  .mySkills .skillslist {
+    width: 100%;
+    height: 100%;
+  }
+  .mySkills .skillslist .line {
+    display: none;
+  }
+  .mySkills .skillslist .fe {
+    width: 60%;
+    height: 45%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0px;
+    margin-bottom: 20px;
+  }
+  .mySkills .skillslist .fe .frontend_title {
+    height: 12%;
+  }
+  .mySkills .skillslist .etcs {
+    width: 40%;
+    height: 45%;
+    padding: 0;
+    margin: 0;
+  }
+  .mySkills .skillslist .etcs .etc_title {
+    height: 12%;
+  }
+  .mySkills .skillslist .fe .dev,
+  .mySkills .skillslist .fe .etc,
+  .mySkills .skillslist .etcs .dev,
+  .mySkills .skillslist .etcs .etc {
+    width: 85%;
+    height: auto;
+  }
+  .mySkills .skillslist .fe .dev .skill,
+  .mySkills .skillslist .fe .etc .skill,
+  .mySkills .skillslist .etcs .dev .skill,
+  .mySkills .skillslist .etcs .etc .skill {
+    width: 100%;
+  }
+  .mySkills .skillslist .fe .dev .skill .description,
+  .mySkills .skillslist .fe .etc .skill .description,
+  .mySkills .skillslist .etcs .dev .skill .description,
+  .mySkills .skillslist .etcs .etc .skill .description {
+    width: 100%;
+    display: none;
+  }
+  .mySkills .skillslist .fe .dev .skill .description img,
+  .mySkills .skillslist .fe .etc .skill .description img,
+  .mySkills .skillslist .etcs .dev .skill .description img,
+  .mySkills .skillslist .etcs .etc .skill .description img {
+    margin: 0;
+  }
+  .mySkills .skillslist .fe .dev .skill span,
+  .mySkills .skillslist .fe .etc .skill span,
+  .mySkills .skillslist .etcs .dev .skill span,
+  .mySkills .skillslist .etcs .etc .skill span {
+    height: 100%;
+    width: 95%;
+  }
+  #projects {
+    width: 100%;
+    height: 100%;
+  }
+  #projects .title {
+    width: 100%;
+    height: 5%;
+  }
+  #projects .first_cont, #projects .second_cont {
+    position: static;
+    width: 85%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    overflow-y: auto;
+  }
+  #projects .first_cont .container, #projects .second_cont .container {
+    width: 100%;
+    position: static;
+  }
+  #projects .first_cont .container .view, #projects .second_cont .container .view {
+    width: 100%;
+    position: static;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  #projects .first_cont .container .view img, #projects .second_cont .container .view img {
+    width: 30%;
+  }
+  #projects .first_cont .container .description, #projects .second_cont .container .description {
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: static;
+    bottom: 0;
+  }
+  #projects .first_cont .container .description .content, #projects .second_cont .container .description .content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #projects .first_cont .container .description .content .content_title, #projects .second_cont .container .description .content .content_title {
+    margin-bottom: 10px;
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  #projects .first_cont .container .description .content p, #projects .second_cont .container .description .content p {
+    width: 92%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+  }
+  #projects .first_cont .container .description .content .skills, #projects .second_cont .container .description .content .skills {
+    margin-bottom: 10px;
+  }
+  #projects .first_cont .container .description .content .skills ul, #projects .second_cont .container .description .content .skills ul {
+    display: none;
+  }
+  #projects .first_cont .container .description .btns, #projects .second_cont .container .description .btns {
+    margin: 0;
+    padding: 0;
+  }
+  #projects .first_cont .container .description .btns .git_btn, #projects .second_cont .container .description .btns .git_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #projects .first_cont .container .description .btns .view_btn, #projects .second_cont .container .description .btns .view_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #projects .second_cont {
+    position: static;
+    width: 85%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    overflow-y: auto;
+  }
+  #projects .second_cont .container {
+    width: 100%;
+    position: static;
+  }
+  #projects .second_cont .container .view {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  #projects .second_cont .container .view img {
+    width: 36%;
+  }
+  #projects .second_cont .container .description {
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: static;
+    bottom: 0;
+  }
+  #projects .second_cont .container .description .content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #projects .second_cont .container .description .content .content_title {
+    margin-bottom: 10px;
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  #projects .second_cont .container .description .content p {
+    width: 92%;
+    margin: 0 auto 10px;
+    text-align: center;
+    font-size: 12px;
+  }
+  #projects .second_cont .container .description .content .skills {
+    margin-bottom: 10px;
+  }
+  #projects .second_cont .container .description .content .skills ul {
+    display: none;
+  }
+  #projects .second_cont .container .description .btns {
+    margin: 0;
+    padding: 0;
+  }
+  #projects .second_cont .container .description .btns .git_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #projects .second_cont .container .description .btns .view_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .mySkills {
+    overflow-x: auto;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .mySkills .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    width: 100%;
+    height: 40px;
+    max-width: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
+  .mySkills .skillslist {
+    width: 100%;
+    height: 100%;
+  }
+  .mySkills .skillslist .line {
+    display: none;
+  }
+  .mySkills .skillslist .fe {
+    width: 60%;
+    height: 170px;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+  }
+  .mySkills .skillslist .fe .frontend_title {
+    height: 12%;
+    font-size: 12px;
+  }
+  .mySkills .skillslist .etcs {
+    width: 40%;
+    height: 170px;
+    padding: 0;
+    margin: 0;
+  }
+  .mySkills .skillslist .etcs .etc_title {
+    height: 12%;
+    font-size: 12px;
+  }
+  .mySkills .skillslist .fe .dev,
+  .mySkills .skillslist .fe .etc,
+  .mySkills .skillslist .etcs .dev,
+  .mySkills .skillslist .etcs .etc {
+    width: 85%;
+    height: 100%;
+  }
+  .mySkills .skillslist .fe .dev .skill,
+  .mySkills .skillslist .fe .etc .skill,
+  .mySkills .skillslist .etcs .dev .skill,
+  .mySkills .skillslist .etcs .etc .skill {
+    width: 100%;
+  }
+  .mySkills .skillslist .fe .dev .skill .description,
+  .mySkills .skillslist .fe .etc .skill .description,
+  .mySkills .skillslist .etcs .dev .skill .description,
+  .mySkills .skillslist .etcs .etc .skill .description {
+    width: 100%;
+    display: none;
+  }
+  .mySkills .skillslist .fe .dev .skill .description img,
+  .mySkills .skillslist .fe .etc .skill .description img,
+  .mySkills .skillslist .etcs .dev .skill .description img,
+  .mySkills .skillslist .etcs .etc .skill .description img {
+    padding: 0;
+    margin: 0;
+  }
+  .mySkills .skillslist .fe .dev .skill span,
+  .mySkills .skillslist .fe .etc .skill span,
+  .mySkills .skillslist .etcs .dev .skill span,
+  .mySkills .skillslist .etcs .etc .skill span {
+    height: 100%;
+    width: 95%;
+  }
+  .contact {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    overflow-y: auto;
+  }
+  .contact .line {
+    width: 80%;
+  }
+  .contact .title {
+    width: 100%;
+  }
+  .contact .introduce {
+    width: 80%;
+    display: none;
+  }
+  .contact .contact_description {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #menu {
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #menu .navbar_menu {
+    position: absolute;
+    top: 50px;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    font-size: 17px;
+  }
+  #menu .navbar_menu li {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  #menu .navbar_menu li a {
+    padding: 0;
+    margin-top: 25px;
+  }
+  #menu .navbar_menu li:last-child {
+    margin-bottom: 40px;
+  }
+  #menu .toggleBtn {
+    display: block;
+  }
+  #menu .navbar_menu.active {
+    display: flex;
+  }
+  .mySkills {
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+  }
+  .mySkills .title {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+  }
+  .mySkills .skillslist {
+    width: 100%;
+    height: 75%;
+  }
+  .mySkills .skillslist .line {
+    display: block;
+  }
+  .mySkills .skillslist .fe {
+    width: 100%;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0px;
+  }
+  .mySkills .skillslist .fe .frontend_title {
+    height: 10%;
+  }
+  .mySkills .skillslist .etcs {
+    width: 70%;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+  }
+  .mySkills .skillslist .etcs .etc_title {
+    height: 10%;
+  }
+  .mySkills .skillslist .fe .dev,
+  .mySkills .skillslist .fe .etc,
+  .mySkills .skillslist .etcs .dev,
+  .mySkills .skillslist .etcs .etc {
+    width: 90%;
+  }
+  .mySkills .skillslist .fe .dev .skill,
+  .mySkills .skillslist .fe .etc .skill,
+  .mySkills .skillslist .etcs .dev .skill,
+  .mySkills .skillslist .etcs .etc .skill {
+    width: 100%;
+  }
+  .mySkills .skillslist .fe .dev .skill .description,
+  .mySkills .skillslist .fe .etc .skill .description,
+  .mySkills .skillslist .etcs .dev .skill .description,
+  .mySkills .skillslist .etcs .etc .skill .description {
+    width: 100%;
+    display: none;
+  }
+  .mySkills .skillslist .fe .dev .skill span,
+  .mySkills .skillslist .fe .etc .skill span,
+  .mySkills .skillslist .etcs .dev .skill span,
+  .mySkills .skillslist .etcs .etc .skill span {
+    height: 100%;
+    width: 95%;
+  }
+  #projects {
+    width: 100%;
+    height: 100%;
+  }
+  #projects .title {
+    display: none;
+    width: 100%;
+    height: 5%;
+  }
+  #projects .first_cont, #projects .second_cont {
+    position: static;
+    width: 85%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    overflow-y: auto;
+  }
+  #projects .first_cont .container, #projects .second_cont .container {
+    width: 100%;
+    position: static;
+  }
+  #projects .first_cont .container .view, #projects .second_cont .container .view {
+    width: 100%;
+    position: static;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  #projects .first_cont .container .view img, #projects .second_cont .container .view img {
+    width: 61%;
+  }
+  #projects .first_cont .container .description, #projects .second_cont .container .description {
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: static;
+    bottom: 0;
+  }
+  #projects .first_cont .container .description .content, #projects .second_cont .container .description .content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #projects .first_cont .container .description .content .content_title, #projects .second_cont .container .description .content .content_title {
+    margin-bottom: 10px;
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  #projects .first_cont .container .description .content p, #projects .second_cont .container .description .content p {
+    width: 92%;
+    margin: 0 auto 10px;
+    text-align: center;
+    font-size: 12px;
+  }
+  #projects .first_cont .container .description .content .skills, #projects .second_cont .container .description .content .skills {
+    margin-bottom: 10px;
+  }
+  #projects .first_cont .container .description .content .skills ul, #projects .second_cont .container .description .content .skills ul {
+    display: none;
+  }
+  #projects .first_cont .container .description .btns, #projects .second_cont .container .description .btns {
+    margin: 0;
+    padding: 0;
+  }
+  #projects .first_cont .container .description .btns .git_btn, #projects .second_cont .container .description .btns .git_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #projects .first_cont .container .description .btns .view_btn, #projects .second_cont .container .description .btns .view_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #projects .second_cont {
+    position: static;
+    width: 85%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    overflow-y: auto;
+  }
+  #projects .second_cont .container {
+    width: 100%;
+    position: static;
+  }
+  #projects .second_cont .container .view {
+    width: 100%;
+    position: static;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  #projects .second_cont .container .view img {
+    width: 83%;
+  }
+  #projects .second_cont .container .description {
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: static;
+    bottom: 0;
+  }
+  #projects .second_cont .container .description .content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #projects .second_cont .container .description .content .content_title {
+    margin-bottom: 10px;
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  #projects .second_cont .container .description .content p {
+    width: 92%;
+    margin: 0 auto 10px;
+    text-align: center;
+    font-size: 12px;
+  }
+  #projects .second_cont .container .description .content .skills {
+    margin-bottom: 10px;
+  }
+  #projects .second_cont .container .description .content .skills ul {
+    display: none;
+  }
+  #projects .second_cont .container .description .btns {
+    margin: 0;
+    padding: 0;
+  }
+  #projects .second_cont .container .description .btns .git_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #projects .second_cont .container .description .btns .view_btn {
+    width: 40px;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .contact {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    overflow-y: auto;
+  }
+  .contact .line {
+    width: 80%;
+  }
+  .contact .title {
+    width: 100%;
+  }
+  .contact .introduce {
+    width: 80%;
+    display: block;
+  }
+  .contact .contact_description {
+    width: 80%;
+  }
+  .fp-controlArrow.fp-prev {
+    left: 7px;
+    width: 0;
+    border-width: 30px 32px 30px 0;
+    border-color: transparent black transparent transparent;
+  }
+  /* 오른쪽 화살 */
+  .fp-controlArrow.fp-next {
+    right: 7px;
+    border-width: 30px 0 30px 32px;
+    border-color: transparent transparent transparent black;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

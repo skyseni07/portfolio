@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <script type="text/javascript" src="./script.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="main.js"></script>
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/1730af3774.js" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+  <ul id="menu">
+    <li>
+      <a href="#firstPage" id="home_btn">
+        Nayoung's Portfolio
+      </a>
+    </li>
+    <ul class="navbar_menu">
+      <li data-menuanchor="firstPage">
+        <a href="#firstPage">Skills</a>
+      </li>
+      <li data-menuanchor="secondPage">
+        <a href="#secondPage">Projects</a>
+      </li>
+      <li data-menuanchor="3rdPage">
+        <a href="#3rdPage">Contact</a>
+      </li>
+      <!-- <li data-menuanchor="4thpage"><a href="#4thpage">Contact</a></li> -->
+    </ul>
+    <a href="#" class="toggleBtn">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+  </ul>
+
+  <div id="myContainer">
+    <!-- 1번째 칸 -->
+    <!-- <div class="section">
+      <div class="about_me">
+        <h2>Nayoung Kim's portfolio</h2>
+        <img src="./images/leeboreum.jpeg" class="img-responsive img-circle" style="display:inline" alt="Boreumlee" width="250" height="250">
+        <h4>안녕하세요 <strong>Front-end developer </strong>이보름입니다.
+          <br>
+          제 포트폴리오 페이지에 오신걸 환영합니다.
+        </h4>
+      </div>
+    </div> -->
+
+    <!-- npx sass --watch css/style.scss css/style.css -->
+
+    <div class="section" id="first_sec">
+      <div class="mySkills">
+        <span class="title">Skills</span>
+
+        <div class="skillslist">
+
+          <div class="fe">
+            <span class="title frontend frontend_title">
+              <span class="dot">●</span>
+              Frontend</span>
+            <img src="imgs/line.png" class="line">
+            <div class="dev">
+              <li class="skill">
+                <img src="imgs/html_last1.png" alt="">
+                <span>HTML</span>
+                <div class="description">
+                  <span>- HTML5 </span>
+                  <span>- Progress: 90%</span>
+                </div>
+              </li>
+              <li class="skill">
+                <img src="imgs/css_last1.png" alt="">
+                <span>CSS</span>
+                <div class="description">
+                  <span>- CSS3 </span>
+                  <span>- Progress: 90%</span>
+                </div>
+              </li>
+              <li class="skill">
+                <img src="imgs/js_last2.png" alt="">
+                <span>JavaScript</span>
+                <div class="description">
+                  <span>- ES6 </span>
+                  <span>- Progress: 70% </span>
+                </div>
+              </li>
+              <li class="skill">
+                <img src="imgs/react.png" alt="">
+                <span>React</span>
+                <div class="description">
+                  <span>- 기본 문법 숙지 </span>
+                  <span>- Progress: 30% </span>
+                </div>
+              </li>
+            </div>
+          </div>
+
+          <div class="etcs">
+            <span class="title etc_title">
+              <span class="dot">●</span>
+              etc.</span>
+            <img src="imgs/line.png" class="line">
+            <div class="etc">
+              <li class="skill">
+                <img src="imgs/certification.png" alt="" srcset="" />
+                <span>정보처리기사 1급</span>
+              </li>
+              <li class="skill">
+                <img src="imgs/ps_final.png" alt="">
+                <span>Photoshop</span>
+              </li>
+              <li class="skill">
+                <img src="imgs/ai_final.png" alt="">
+                <span>Illustrator</span>
+              </li>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- 3번째 칸 -->
+    <div class="section">
+      <div class="slide" id="projects">
+        <div class="title">
+          <!-- <span class="number">01</span> -->
+          <span> Projects</span>
+        </div>
+        <div class="first_cont">
+
+          <div class="container">
+            <div class="view">
+              <img class="slide1" src="imgs/habittracker capture.png">
+            </div>
+            <div class="description">
+
+              <div class="content">
+                <div class="content_title">
+                  <span class="number">01</span>
+                  <span> Habit Tracker</span>
+                </div>
+                <p>
+                  <br><b>참여 인원</b> 1명
+                  <br><b>개발 기간</b> 22.9.1 ~ 22.9.15
+                </p>
+                <p>
+                  TODO LIST 기능이 있는 HABIT TRACKER 데스크탑 페이지입니다.
+                  자주 쓰는 할 일 목록을 편집할 수 있어 매번 입력할 필요없이 편리하게 사용할 수 있으며,
+                  완료한 목록을 매일 기록하여 해당 기간 동안 목표 달성률을 확인할 수 있습니다.</p>
+                <div class="skills">
+                  <ul>
+                    <li><i class="fa-solid fa-circle first"></i>REACT</li>
+                    <li><i class="fa-solid fa-circle second"></i>HTML</li>
+                    <li><i class="fa-solid fa-circle third"></i>SCSS</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="btns">
+                <a href="https://github.com/skyseni07/habit-tracker" class="git_btn" target='_blank'>GITHUB</a>
+                <a href="https://skyseni07.github.io/habit-tracker" class="view_btn" target='_blank'>VIEW</a>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="slide" id="projects">
+        <div class="title">
+          <!-- <span class="number">01</span> -->
+          <span> Projects</span>
+          <img src="imgs/line.png" class="line">
+        </div>
+        <div class="second_cont">
+
+          <div class="container">
+            <div class="view">
+              <img class="slide1" src="imgs/iu_fan_page.png">
+            </div>
+            <div class="description">
+
+              <div class="content">
+                <div class="content_title">
+                  <span class="number">02</span>
+                  <span> IU FANPAGE</span>
+                </div>
+                <p>
+                  <br><b>참여 인원</b> 1명
+                  <br><b>개발 기간</b> 22.10.10 ~ 22.11.07
+                </p>
+                <p>
+                  게시판 기능이 있는 팬페이지 입니다.<br>
+                  메인 화면 또는 상단 메뉴를 통해 공지사항, 뉴스 게시판에 접근할 수 있으며, 글쓰기, 수정, 업데이트 및 삭제 기능을 사용할 수 있습니다.
+                </p>
+                <div class="skills">
+                  <ul>
+                    <li><i class="fa-solid fa-circle first"></i>REACT</li>
+                    <li><i class="fa-solid fa-circle second"></i>HTML</li>
+                    <li><i class="fa-solid fa-circle third"></i>SCSS</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="btns">
+                <a href="https://github.com/skyseni07/iu_fan_page" class="git_btn" target='_blank'>GITHUB</a>
+                <a href="https://skyseni07.github.io/iu_fan_page/" class="view_btn" target='_blank'>VIEW</a>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- 4번째 칸 -->
+    <div class="section">
+      <div class="contact">
+        <span class="title">Contact</span>
+        <img src="imgs/line.png" class="line">
+        <div class="content">
+          <div class="introduce">
+            <p class="hi">안녕하세요, 김나영입니다.</p>
+            <p>배운 지식을 바탕으로 화면을 구현해나가는 과정에 재미를 느껴 프론트엔드 개발자를 꿈꾸게 되었습니다. 
+              매일 한 발 한 발 나아가는 건실한 개발자가 되고 싶습니다. 성실하게 쌓은 지식으로,
+              회사에 도움이 되는 개발자가 되겠습니다.</p>
+          </div>
+          <!-- <img src="imgs/line.png" class="line"> -->
+          <div class="contact_description">
+            <div class="contacts call">
+              <br>
+              <span class="contact_title">CALL</span>
+              <p>T. +82 (0)10 2739 1373</p>
+            </div>
+            <div class="contacts email">
+              <p class="contact_title">EMAIL</p>
+              <p>skyseni07@naver.com</p>
+            </div>
+            <!-- <div class="contacts address">
+              <p class="contact_title">ADDRESS</p>
+              <p>Republic of Korea</p>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  </div>
+
+  <input type="hidden" id="_4" value="3" />
+
+</body>
+<script>
+  const toggleBtn = document.querySelector('.toggleBtn');
+  const menu = document.querySelector('.navbar_menu');
+  
+  toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  
+  })</script>
+</html>
