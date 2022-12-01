@@ -1698,6 +1698,10 @@ code {
               height: 100%;
               width: 95%;
             }
+
+            img{
+              width: 50px;
+            }
           }
         }
       }
@@ -1944,7 +1948,7 @@ code {
     .introduce {
       // background-color: pink;
       width: 80%;
-      display: block;
+      display: none;
     }
   
     .contact_description {
