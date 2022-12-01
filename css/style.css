@@ -1349,17 +1349,18 @@ code {
   }
   .mySkills .skillslist .fe {
     width: 100%;
-    height: 50%;
+    height: 37%;
     padding: 0;
     margin: 0;
     padding-bottom: 0px;
+    margin-bottom: 20px;
   }
   .mySkills .skillslist .fe .frontend_title {
     height: 10%;
   }
   .mySkills .skillslist .etcs {
     width: 70%;
-    height: 50%;
+    height: 37%;
     padding: 0;
     margin: 0;
   }
@@ -1425,7 +1426,6 @@ code {
     width: 100%;
     position: static;
     padding: 0;
-    margin-bottom: 10px;
   }
   #projects .first_cont .container .view img, #projects .second_cont .container .view img {
     width: 61%;
@@ -1446,7 +1446,6 @@ code {
     justify-content: center;
   }
   #projects .first_cont .container .description .content .content_title, #projects .second_cont .container .description .content .content_title {
-    margin-bottom: 10px;
     height: 20%;
     width: 100%;
     text-align: center;
@@ -1454,12 +1453,9 @@ code {
   }
   #projects .first_cont .container .description .content p, #projects .second_cont .container .description .content p {
     width: 92%;
-    margin: 0 auto 10px;
+    margin: 0 auto 0px;
     text-align: center;
     font-size: 12px;
-  }
-  #projects .first_cont .container .description .content .skills, #projects .second_cont .container .description .content .skills {
-    margin-bottom: 10px;
   }
   #projects .first_cont .container .description .content .skills ul, #projects .second_cont .container .description .content .skills ul {
     display: none;
@@ -1500,7 +1496,6 @@ code {
     width: 100%;
     position: static;
     padding: 0;
-    margin-bottom: 10px;
   }
   #projects .second_cont .container .view img {
     width: 83%;
@@ -1521,7 +1516,6 @@ code {
     justify-content: center;
   }
   #projects .second_cont .container .description .content .content_title {
-    margin-bottom: 10px;
     height: 20%;
     width: 100%;
     text-align: center;
@@ -1529,12 +1523,9 @@ code {
   }
   #projects .second_cont .container .description .content p {
     width: 92%;
-    margin: 0 auto 10px;
+    margin: 0 auto 0px;
     text-align: center;
     font-size: 12px;
-  }
-  #projects .second_cont .container .description .content .skills {
-    margin-bottom: 10px;
   }
   #projects .second_cont .container .description .content .skills ul {
     display: none;
