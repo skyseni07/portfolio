@@ -1,9 +1,13 @@
 {
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "sass": "^1.56.0"
   },
   "homepage": "https://skyseni07.github.io/portfolio"
