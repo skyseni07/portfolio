@@ -1,6 +1,10 @@
 {
-  
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
   "dependencies": {
     "sass": "^1.56.0"
-  }
+  },
+  "homepage": "https://skyseni07.github.io/portfolio"
 }
