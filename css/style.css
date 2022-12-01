@@ -1455,7 +1455,7 @@ code {
     width: 92%;
     margin: 0 auto 0px;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
   }
   #projects .first_cont .container .description .content .skills ul, #projects .second_cont .container .description .content .skills ul {
     display: none;
@@ -1465,16 +1465,20 @@ code {
     padding: 0;
   }
   #projects .first_cont .container .description .btns .git_btn, #projects .second_cont .container .description .btns .git_btn {
+    font-size: 10px;
     width: 40px;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 7px 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   #projects .first_cont .container .description .btns .view_btn, #projects .second_cont .container .description .btns .view_btn {
+    font-size: 10px;
+    align-items: center;
     width: 40px;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 7px 20px;
     display: flex;
     justify-content: center;
   }

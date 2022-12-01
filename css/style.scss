@@ -1785,7 +1785,7 @@ code {
               width:92%;
               margin: 0 auto 0px;
               text-align: center;
-              font-size: 12px;
+              font-size: 10px;
               
             
             }
@@ -1805,17 +1805,23 @@ code {
   margin: 0;
             padding: 0;
             .git_btn {
+              font-size: 10px;
               width: 40px;
               margin: 10px;
-              padding: 10px 20px ;
+              padding: 7px 20px;
               display: flex;
               justify-content: center;
+              align-items: center;
+              
             }
   
             .view_btn {
+              font-size: 10px;
+              
+              align-items: center;
               width: 40px;
               margin: 10px;
-              padding: 10px 20px ;
+              padding: 7px 20px;
               display: flex;
               justify-content: center;
             }
