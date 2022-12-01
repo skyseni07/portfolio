@@ -1458,7 +1458,6 @@ code {
     width: 92%;
     margin: 0 auto 0px;
     text-align: center;
-    font-size: 10px;
   }
   #projects .first_cont .container .description .content .skills ul, #projects .second_cont .container .description .content .skills ul {
     display: none;
